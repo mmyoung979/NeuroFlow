@@ -9,7 +9,7 @@ from datetime import datetime, timedelta
 # Check if user didn't record mood yesterday
 def check_if_reset_needed(user):
     yesterday = datetime.now() - timedelta(days=1)
-    if len(Mood.objects.all()) > 0:
+    if Mood.objects.all().count() > 0:
         if Mood.objects.last().date.date() < yesterday.date():
             user.streak = 0
             user.save()
