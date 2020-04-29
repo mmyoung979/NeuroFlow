@@ -15,7 +15,7 @@ SECRET_KEY = 't0lb&)s+(e^7ib2ei^e)4@bk+q#!=tb!x#tyr1uai+^rn)qb$&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['127.0.0.1', 'mattmyoung.com']
 
 INSTALLED_APPS = [
     # Django imports
