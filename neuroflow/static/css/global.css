@@ -107,7 +107,10 @@ form {
 }
 @media only screen and (max-width: 768px) {
   .header {padding: 30px 0;}
-  .navbar-logo {text-align: center;}
+  .navbar-logo {
+    text-align: center;
+    width: 100%;
+  }
   .navbar-menu {
     float: none;
     justify-content: center;

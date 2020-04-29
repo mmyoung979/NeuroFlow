@@ -31,12 +31,12 @@
     <div class="container-fluid main-container">
       <nav id="header-solid" class="sticky header">
         <div class="row">
-          <div class="col navbar-logo">
+          <div class="col-sm-12 col-md col-lg navbar-logo">
             <a href="{% url 'home' %}">
               <img height="45px" src="{% static 'img/White-NeuroFlow-Logo-398x67-238x40@2x.png' %}" alt="Neuroflow Code Challenge">
             </a>
           </div>
-          <div class="col">
+          <div class="col-sm-12 col-md col-lg">
             <div class="navbar-menu">
                 <a href="/">Home</a>
                 {% if user.is_authenticated %}
