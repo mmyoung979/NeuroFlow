@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container main-container">
+    <div class="row">
+      <div class="col-12">
+        <h1>NeuroFlow</h1>
+        <h2>Please select your mood today</h2>
+      </div>
+      <div class="col emoji">
+        <form action="{% url 'mood' %}" method="POST">
+          {% csrf_token %}
+          <div class="row">
+            <div class="col">
+              <input type="submit" value="&#128522;" name="emotion">
+            </div>
+            <div class="col">
+              <input type="submit" value="&#128526;" name="emotion">
+            </div>
+            <div class="col">
+              <input type="submit" value="&#128528;" name="emotion">
+            </div>
+            <div class="col">
+              <input type="submit" value="&#128531;" name="emotion">
+            </div>
+            <div class="col">
+              <input type="submit" value="&#128548;" name="emotion">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <form action="/mood">
+      {% csrf_token %}
+      {{ form }}
+    </form>
+  </div>
+{% endblock %}

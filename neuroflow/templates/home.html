@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container main-container">
+    <div class="row">
+      <div class="col-12">
+        <h1>Matt Young</h1>
+        <h2>NeuroFlow Code Challenge</h2>
+        <hr>
+        <h2>How To Use</h2>
+        <div class="space-30"></div>
+        <ol>
+          <li><a href="{% url 'signup' %}">Create an account</a></li>
+          <li>Record a mood by clicking an emoji on the <a href="{% url 'mood' %}">Mood page</a></li>
+          <li>See your recorded moods on your <a href="{% url 'account' %}">account page</a></li>
+          <li>You can see the API entry for each mood by clicking on its associated emoji.</li>
+        </ol>
+        <p>
+          If you visit the <a href="/mood">/mood endpoint</a>, you will see the API output
+          for all your recorded moods. You can also POST new moods.
+        </p>
+        <p>
+          If you would like to post a mood via API, you just need to input an "emotion" like so:
+        </p>
+        <p>
+          {"emotion": "Happy"}
+        </p>
+        <p>
+          Write any emotion you want!
+        </p>
+        <div class="space-30"></div>
+        <hr>
+        <h2>What Would I Change?</h2>
+        <div class="space-30"></div>
+        <p>
+          If this were to become an actual app, I would want to do research into how people report their emotions.
+          The system is only as good as it relates to the user.
+        </p>
+        <p>
+          I would also develop automated testing. I figured that wasn't part of the evaluation with the requirements
+          being as wide-ranging as they already are.
+        </p>
+        <p>
+          There's an inconsistency with posting to the API and the emojis available on a user account. That would
+          need to be reconciled.
+        </p>
+        <p>
+          I would switch over to a PostgreSQL database if this was production. SQLite is easier to download and browse
+          for the purposes of reviewing this project.
+        </p>
+        <p>
+          Those are just some immediate thoughts. There are a million ways this could be developed.
+        </p>
+        <div class="space-30"></div>
+        <hr>
+        <h2>Challenge Requirements</h2>
+        <div class="space-30"></div>
+        <p>
+          For this project, please create a small backend REST API which fulfills the requirements written
+          below.
+        </p>
+        <p>
+          Create a single public git repo to host your project and then commit & push to that repo once
+          per story. If you need to push more than once that's okay, it just makes it easier to review if it's
+          once per story.
+        </p>
+        <p>
+          Feel free to develop however you normally would. Please use Python, but besides that you can
+          make use of whatever frameworks and 3rd party libraries you think make sense for this project.
+        </p>
+        <p>
+          If you have any questions feel free to reach out, but specific direction is up to you.
+        </p>
+        <p>
+          When you're finished, please send back the link to the git repo with your completed work. Make
+          sure to include instructions as to how to run and use the application.
+        </p>
+        <p>
+          Requirements:
+        </p>
+        <ol>
+          <li>
+            Create a web REST application with a '/mood' endpoint, which when POSTed to persists the
+            submitted mood value.
+          </li>
+          <li>
+            Add the ability for users to login.
+          </li>
+          <li>
+            Update the '/mood' endpoint with a GET method, so it only returns values submitted by the
+            logged-in user.
+          </li>
+          <li>
+            Add to the body of the response for the ‘/mood’ endpoint the length of their current "streak".
+          </li>
+          <li>
+            A user is on a “streak” if that user has submitted at least 1 mood rating for each
+            consecutive day of that streak.
+            For example, if on March 1st, March 2nd, March 3rd, and March 5th the user entered
+            mood ratings, a 3-day streak will apply to the March 3rd rating and the streak will reset to
+            a 1-day streak for the March 5th rating.
+          </li>
+          <li>
+            Calculate the user's streak's percentile compared to other users, and if the percentile is >= 50%,
+            return that percentile in the ‘/mood’ endpoint
+          </li>
+          <li>
+            A users’ longest streak is defined as the largest number of consecutive days that a user
+            has submitted mood ratings. Compare this user’s streak to all other users’ longest
+            streaks to determine the percentile.
+          </li>
+          <li>
+            Set up your application for containerization such that it can be run on any machine that
+            supports the containerization technology (e.g., Docker).
+          </li>
+        </ol>
+        <p>
+          Document what, if anything, you would do differently if this were a production application and
+          not an assessment? What tech would you use? How would you handle things differently if it
+          needed to handle more users, more data, etc?
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="space-30"></div>
+{% endblock %}

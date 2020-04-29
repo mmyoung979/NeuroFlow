@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+  <link rel="stylesheet" href="{% static 'css/accounts.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <h1>Mood Tracker</h1>
+  <h2>Streak: <strong>{{ streak }} day{% if streak != 1 %}s{% endif %}</strong></h2>
+  <p class="text-center">Hello, {{ request.user }}</p>
+
+  {% if moods %}
+    {% for mood in moods %}
+      <div class="row text-center mx-5">
+        <div class="col-6">
+          <a href="/mood/{{ mood.id }}" class="emoji">{{ mood.emotion }}</a>
+        </div>
+        <div class="col-6 vertical-align">
+          <p class="vertical-align">{{ mood.date }}</p>
+        </div>
+      </div>
+    {% endfor %}
+  {% else %}
+    <p>You have not recorded any moods yet. <a href="{% url 'mood' %}">Record one here.</a></p>
+  {% endif %}
+{% endblock content %}

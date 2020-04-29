@@ -1,0 +1,135 @@
+*::selection {background-color: #4e8ca3;}
+html {background-color: #1D224D;}
+body {
+  width: 100%;
+  color: #070d10;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+body, button, input, select, textarea {font-family: 'Raleway', sans-serif;}
+a:hover {text-decoration: none !important;}
+input {
+  color: #070d10;
+  width: 80%;
+  border: none;
+  padding: 15px;
+  background-color: transparent;
+}
+h1 {
+    color: rgb(22,27,74);
+    letter-spacing: 2px;
+    font-size: 60px;
+    display: block;
+    text-align: center;
+    margin: 60px 0 30px;
+}
+h2 {
+  font-size: 30px;
+  color: #878b8c;
+  text-align: center;
+}
+p, li {margin-bottom: 30px;}
+form {
+  text-align: center;
+  margin-top: 45px;
+  margin-bottom: 45px;
+}
+.col-12 {padding: 0}
+.container-fluid {padding: 0 !important}
+#content, #footer {padding: 30px}
+.vertical-align {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.button {
+    background-color: #fff;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 15px;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 12px;
+    transition: all 0.15s ease-in-out;
+}
+.button:hover {background-color: #503d81;}
+.main-container {min-height: calc(100vh - 185px) !important;}
+.emoji {
+  font-size: 100px;
+  text-align: center;
+}
+#footer {
+  width: 100%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: #1D224D;
+  color: white;
+}
+/* Navbar */
+.header {
+  margin: 0;
+  padding: 20px 40px;
+  overflow: hidden;
+  background-color: #1D224D;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 0 2rem 0 rgba(157, 192, 211, .3);
+}
+.navbar-logo {
+  position: relative;
+  float: left;
+}
+.navbar-logo {width: 20%;}
+.navbar-menu {
+  float: right;
+  display: flex;
+}
+.navbar-menu a {
+  display: block;
+  color: #fff;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.navbar-menu a:hover:not(.active) {
+  background-color: #111;
+  color: white;
+}
+.navbar-menu a.active:hover) {
+  background-color: #fff;
+}
+@media only screen and (max-width: 768px) {
+  .header {padding: 30px 0;}
+  .navbar-logo {text-align: center;}
+  .navbar-menu {
+    float: none;
+    justify-content: center;
+    padding-top: 15px;
+  }
+  h1 {margin-top: 105px;}
+}
+/* The sticky class is added to the header with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.fixed {
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100%;
+}
+/* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + #content {
+  padding-top: 102px;
+}
+.space-30 {height: 30px;}
+.space-90 {height: 90px;}

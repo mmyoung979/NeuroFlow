@@ -1,0 +1,84 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Site Title -->
+    <title>NeuroFlow | Matt Young Code Challenge</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static 'img/cropped-Favicon-NeuroFlow-512x512-32x32.png' %}" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+    {% block css %}{% endblock %}
+
+    <!-- Header JS -->
+    {% block header_js %}{% endblock %}
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <div class="container-fluid main-container">
+      <nav id="header-solid" class="sticky header">
+        <div class="row">
+          <div class="col navbar-logo">
+            <a href="{% url 'home' %}">
+              <img height="45px" src="{% static 'img/White-NeuroFlow-Logo-398x67-238x40@2x.png' %}" alt="Neuroflow Code Challenge">
+            </a>
+          </div>
+          <div class="col">
+            <div class="navbar-menu">
+                <a href="/">Home</a>
+                {% if user.is_authenticated %}
+                  <a href="{% url 'mood' %}">Mood</a>
+                  <a href="{% url 'account' %}">Account</a>
+                  <a href="{% url 'logout' %}">Logout</a>
+                {% else %}
+                  <a href="{% url 'login' %}">Login</a>
+                  <a href="{% url 'signup' %}">Sign Up</a>
+                {% endif %}
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Main Content -->
+      <div id="content">
+        {% block content %}
+        {% endblock %}
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <section id="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center">
+            <div class="copyright-info">
+              Copyright &copy; <script>document.write(new Date().getFullYear())</script> NeuroFlow, a Matt Young code challenge. All Rights Reserved.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+	</body>
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  <!-- Footer JS -->
+  {% block footer_js %}
+  {% endblock %}
+</html>
