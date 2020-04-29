@@ -20,11 +20,8 @@ def calculate_streak_percentile(user):
     active_accounts = Account.objects.filter(longest_streak__gte=1).count()
     index = Account.objects.filter(longest_streak__range=[1, user.streak]).count()
 
-    if index > 0:
+    if index > 0 and active_accounts:
         return int(index / active_accounts * 100)
-
-    else:
-        return None
 
 
 def check_if_longest_streak(user):
