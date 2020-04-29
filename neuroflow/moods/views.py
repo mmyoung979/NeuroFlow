@@ -17,12 +17,9 @@ def home(request):
 
 
 # Mood endpoint
+@login_required
 def mood(request):
     user = request.user
-
-    if not user.is_authenticated:
-        return redirect('login')
-
     form = MoodForm(request.POST or None)
     context = {'form': form}
 
