@@ -23,6 +23,9 @@ def calculate_streak_percentile(user):
     if index > 0 and active_accounts:
         return int(index / active_accounts * 100)
 
+    else:
+        return user.streak_percentile
+
 
 def check_if_longest_streak(user):
     if user.streak > user.longest_streak:
