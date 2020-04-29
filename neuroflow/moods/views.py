@@ -49,8 +49,8 @@ def mood(request):
 @login_required
 def account_view(request):
     context = {}
-    
-    if Mood.objects.filter(account=user).count() > 0:
+
+    if Mood.objects.filter(account=user).count():
         user = request.user
         check_if_reset_needed(user)
         moods = Mood.objects.filter(account=user).order_by("-date")
