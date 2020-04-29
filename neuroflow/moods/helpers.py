@@ -9,10 +9,10 @@ from datetime import datetime, timedelta
 # Check if user didn't record mood yesterday
 def check_if_reset_needed(user):
     yesterday = datetime.now() - timedelta(days=1)
-
-    if Mood.objects.last().date.date() < yesterday.date():
-        user.streak = 0
-        user.save()
+    if Mood.objects:
+        if Mood.objects.last().date.date() < yesterday.date():
+            user.streak = 0
+            user.save()
 
 
 # Streak percentile = rank (descending) / # of active accounts
