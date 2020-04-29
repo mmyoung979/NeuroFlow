@@ -46,18 +46,15 @@ def mood(request):
 
 
 # View account
+@login_required
 def account_view(request):
-    user = request.user
-
-    if not user.is_authenticated:
-        return redirect('login')
-
-    else:
+    context = {}
+    
+    if Mood.objects.filter(account=user).count() > 0:
+        user = request.user
         check_if_reset_needed(user)
         moods = Mood.objects.filter(account=user).order_by("-date")
-        context = {
-            'moods': moods,
-            'streak': user.streak,
-        }
+        context['moods'] = moods
+        context['streak'] = user.streak
 
-        return render(request, 'account.html', context)
+    return render(request, 'account.html', context)
