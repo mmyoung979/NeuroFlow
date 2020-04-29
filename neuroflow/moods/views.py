@@ -21,7 +21,7 @@ def mood(request):
     user = request.user
 
     if not user.is_authenticated:
-        return redirect('/account/login/')
+        return redirect('login')
 
     form = MoodForm(request.POST or None)
     context = {'form': form}
